@@ -6,4 +6,4 @@ Write-ups of CTF challegens that I've worked on - mainly with Ganesh, an informa
 - Websec.fr 
 - Fireshell CTF 2020
 
-The write-ups are organized in folders following this pattern: `Year_ctfName_ChallengeName`
+The write-ups are organized in folders following this pattern: `/year_ctfName_ChallengeName` or `/year_ctfName/challName`
