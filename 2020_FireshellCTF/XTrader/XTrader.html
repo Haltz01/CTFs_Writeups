@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./css/nes.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+  <style>
+      html, body, pre, code, kbd, samp {
+          font-family: "Press Start 2P";
+      }
+      body {
+       background-image: url("./src/backg.jpg");
+       background-color: #ac4bc9;
+      }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body onload="startCountdown()">
+<section class="nes-container">
+<div id="text" class="nes-container with-title is-centered">
+   <p class="title" id="click">Press Start to .. you know</p>
+     <span class="nes-text is-error">Points: 0</span>
+
+    <br><button type="button" class="nes-btn is-primary" id="start" onclick="start()">START</button>
+    <button type="button" class="nes-btn is-success" id="buy" onclick="welcome.style.visibility = 'visible'">BUY FLAG</button>
+    <div id=numberCountdown align=center></div>
+</div>
+<br>
+<div id="welcome" class="nes-container with-title">
+    <p class="title" id="click">Welcome! </p>
+    <i class="nes-icon coin"></i><span class="nes-text is-error"> </span></br>
+    <div class="nes-balloon from-left">
+       <p>What're ya buyin?</p>
+     </div></br>
+       <button type="button" class="nes-btn is-warning" onclick="buy('hint')">Hint</button>
+         <i class="nes-icon coin"></i> <span class="nes-text is-error">500</span><br><br>
+       <button type="button" class="nes-btn is-success" onclick="buy('flag')">Flag</button>
+         <i class="nes-icon coin"></i> <span class="nes-text is-error">10000</span></br>
+</div>
+</section>
+<script>
+
+var welcome = document.getElementById('welcome');
+welcome.style.visibility = 'hidden';
+
+var src = "/src/flag.mp4";
+
+money = '';
+
+function start(){
+    var elem = document.getElementById('start');
+    elem.parentNode.removeChild(elem);
+    var buy = document.getElementById("buy");
+    buy.parentNode.removeChild(buy);
+    
+    var vid = document.createElement("video");
+    vid.setAttribute("src", src);
+    vid.style.width = "640px";
+    vid.style.height = "480px";
+    counter(vid);
+    document.body.appendChild(vid);
+    vid.play(); 
+    var divadd = document.getElementById("text"); 
+    divadd.appendChild(vid);
+}
+
+function buy(self){
+
+    if(arguments[0] === 'flag'){ point = 10000; }
+    if(arguments[0] === 'hint'){ point = 500; }
+    if(money < point){
+      alert("you don't have enough points")
+    } else {
+       $.post("shop.php",
+         {
+          option: arguments[0]
+         },
+        function(data, status){
+          alert(data);
+          location.reload();
+
+        });
+     }
+}
+
+
+function points(){
+
+    $.post("points.php",
+        {
+          points: "1",
+          solved: "true"
+        },
+    function(data,status){
+         if(data == 'done'){
+             alert("Points added!!");}
+         else{alert('Something went wrong');}
+         location.reload();
+
+     });
+
+}
+
+
+function counter(vid){
+
+    var x = setInterval(
+        function() {
+            var seconds = parseInt(vid.duration);
+            var current = parseInt(vid.currentTime);
+            var distance = seconds-current;
+            document.getElementById("click").innerHTML = 'Wait '+distance+' Seconds!';
+            if (distance == 0) {
+                distance == 1;
+                document.getElementById("click").innerHTML = "Points added!";
+                clearInterval(x)
+                points();
+            }
+
+        }, 1000);
+
+}
+
+var g_iCount = new Number();
+ 
+var g_iCount = '600';
+ 
+function startCountdown(){
+       if((g_iCount - 1) >= 0){
+               g_iCount = g_iCount - 1;
+               numberCountdown.innerHTML = '<span class="nes-text is-error"> your session expires in: ' + g_iCount + '</span>';
+               setTimeout('startCountdown()', 1000);
+       } else{ location.reload(); }
+}
+
+
+
+</script>
+
+</body>
+</html>
+

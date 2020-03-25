@@ -1,0 +1,15 @@
+POST https://xtrader.fireshellsecurity.team/points.php
+Host: xtrader.fireshellsecurity.team
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:74.0) Gecko/20100101 Firefox/74.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+Content-Length: 20
+Origin: https://xtrader.fireshellsecurity.team
+Connection: keep-alive
+Referer: https://xtrader.fireshellsecurity.team/
+Cookie: __cfduid=de0be831db6c5a45b401255ed3f0ef1481584820130; _ga=GA1.2.9643600.1584824898; _gid=GA1.2.174125082.1584824898; PHPSESSID=a1887d59e8a3cb94e1af22958e86d694
+
+points=1&solved=true
