@@ -1,7 +1,7 @@
 # Mysqlimit
 ### TetCTF 2021
 
-We had access to the source code (check sourcecode.php). Afte reading it, we can assume that we must bypass the filter to do some kind of SQL Injection...
+We had access to the source code (check [sourcecode.php](https://github.com/Haltz01/CTFs_Writeups/blob/master/2021_TetCTF/mysqlimit/sourcecode.php)). Afte reading it, we can assume that we must bypass the filter to do some kind of SQL Injection...
 
 Testing `id=1` we get "handsome_flag" as query result. Similarly, `id=2` returns "ugly_flag" and `id=3` "amazing_goodjob_flag"
 
@@ -40,6 +40,6 @@ The problem now is that obviouly the flag is greater than "T", so the return val
 
 I almost forgot one important thing: strcmp() is case-insensitive. So, we must add BINARY before our guess to transform this into a case-sensitive comparison. Correct payload idea -> `1%26%261%2bSTRCMP(t_fl4g_v3lue_su,BINARY%200x54)`
 
-Using a Python script (check pwn.py), we can continue our Blind SQL Injection to discover the entire flag!!
+Using a Python script (check [pwn.py](https://github.com/Haltz01/CTFs_Writeups/blob/master/2021_TetCTF/mysqlimit/pwn.py)), we can continue our Blind SQL Injection to discover the entire flag!!
 
 **FLAG: `TetCTF{_W3LlLlLlll_Pl44yYyYyyYY_<3_vina_*100*28904961445554#}`**

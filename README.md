@@ -5,5 +5,8 @@ Write-ups of CTF challegens that I've worked on - mainly with Ganesh, an informa
 - Pwn2Win 2019
 - Websec.fr 
 - Fireshell CTF 2020
+- Security Cast 2020
+- Hackaflag 2020
+- TetCTF 2021
 
 The write-ups are organized in folders following this pattern: `/year_ctfName_ChallengeName` or `/year_ctfName/challName`

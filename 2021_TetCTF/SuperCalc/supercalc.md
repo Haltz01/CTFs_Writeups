@@ -48,7 +48,7 @@ We must find a way to "create" there chars:
 `[` = 91
 `]` = 93
 
-Trying to find the chars with python (findingChars.py), I only obtained 4 of there characters: $, G, E, T... But, with a 2nd round of enconding, it's possible to reach the other 3 chars:
+Trying to find the chars with python ([findingChars.py](https://github.com/Haltz01/CTFs_Writeups/blob/master/2021_TetCTF/SuperCalc/findingChars.py)), I only obtained 4 of there characters: $, G, E, T... But, with a 2nd round of enconding, it's possible to reach the other 3 chars:
 ```
 '4' & '.' = '$'
 '9' ^ '~' = 'G'
@@ -67,7 +67,7 @@ But now we must reduce its size to be under 70 chars...
 
 To reduce the payload size, we can combine the chars if they all have the same amount of XOR operations.
 
-Redoing all chars to be a combination of 3 XORs (findingChars_XORs.py):
+Redoing all chars to be a combination of 3 XORs ([findingChars_XORs.py](https://github.com/Haltz01/CTFs_Writeups/blob/master/2021_TetCTF/SuperCalc/findingChars_XORs.py)):
 ```
 '0' ^ '2' ^ '&' = '$'
 '0' ^ '1' ^ '^' = '_'

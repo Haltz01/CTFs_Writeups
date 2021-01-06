@@ -35,6 +35,6 @@ while True:
         hex_guess_max = int(curr_guess, 16)
         curr_guess = hex(int(hex_guess_min + (hex_guess_max-hex_guess_min)/2))[2:]
 
-Print("DONE! Here's your flag: " + bytes.fromhex(flag_guess).decode('utf-8'))
+print("DONE! Here's your flag: " + bytes.fromhex(flag_guess).decode('utf-8'))
 
 # TetCTF{_W3LlLlLlll_Pl44yYyYyyYY_<3_vina_*100*28904961445554#}
