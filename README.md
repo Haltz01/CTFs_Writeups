@@ -10,3 +10,7 @@ Write-ups of CTF challegens that I've worked on - mainly with Ganesh, an informa
 - TetCTF 2021
 
 The write-ups are organized in folders following this pattern: `/year_ctfName_ChallengeName` or `/year_ctfName/challName`
+
+## TO-DO:
+- Organize CTFs that alreary are in the repo (improve a lot of writeups...)
+- Add Writeups from CTFs that are in the local machine + in Ganesh's server
